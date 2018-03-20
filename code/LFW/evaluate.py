@@ -2,8 +2,8 @@
 #coding: utf-8
 #author: huangyangyu
 
-#layer_num = 27
-layer_num = 64
+layer_num = 27
+#layer_num = 64
 
 import os
 import sys
@@ -87,13 +87,9 @@ def test():
         item[0] = image_dir + "images/" + item[0]
         item[1] = image_dir + "images/" + item[1]
         assert len(item) == 3
-        if os.path.exists(item[0]) and os.path.exists(item[1]):
-            pairs.append(tuple(item))
-            image_files.add(item[0])
-            image_files.add(item[1])
-        #else:
-        #    print item[0]
-        #    print item[1]
+        pairs.append(tuple(item))
+        image_files.add(item[0])
+        image_files.add(item[1])
 
     feature_file = image_dir + "feature_%d.pkl" % layer_num
     if not os.path.exists(feature_file):
@@ -117,7 +113,7 @@ def test():
         features = dict()
         for k, image_file in enumerate(image_files):
             if not features.has_key(image_file):
-                features[image_file] = featurer.test(image_file=image_file)
+                features[image_file.replace(root_dir, "")] = featurer.test(image_file=image_file)
             print "processed:", k
             sys.stdout.flush()
         cPickle.dump(features, open(feature_file, "wb"))
@@ -129,9 +125,9 @@ def test():
     for pair in pairs:
         image_file1, image_file2, tag = pair[:3]
         # person1
-        feature1 = features[image_file1]
+        feature1 = features[image_file1.replace(root_dir, "")]
         # person2
-        feature2 = features[image_file2]
+        feature2 = features[image_file2.replace(root_dir, "")]
         # sim
         #sim = cos_sim(feature1, feature2)
         sim = norml2_sim(feature1, feature2)
@@ -174,4 +170,3 @@ def test():
 
 if __name__ == "__main__":
     test()
-
