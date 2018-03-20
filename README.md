@@ -32,7 +32,7 @@
 
 ### Dataset
 
-  All faces in our dataset are detected by MTCNN and aligned by align.py. The structure of trainning dataset and testing dataset is shown below. Please note that the testing dataset have already processed by detection and alignment, So you can get our result directly by running our evaluating script.
+  All faces in our dataset are detected by MTCNN and aligned by align.py. The structure of trainning dataset and testing dataset is shown below. Please note that the testing dataset have already be processed by detection and alignment, So you can reproduce our result directly by running our evaluating script.
 
   Training Dataset
 
@@ -46,7 +46,7 @@
 
   Testing Feature
 
-  You can also use the computed testing feature instead of the testing dataset to evaluate result.
+  You can also use the precomputed feature instead of the testing dataset to evaluate our method.
 
   **`LFW`**: [@BaiduDrive](https://pan.baidu.com/s/1Lwgd4mu2tvYljA8uTwGjjQ), [@GoogleDrive](https://drive.google.com/file/d/10WtXWrg72McupG0HUts9bF91hSj4mzz8/view)
 
@@ -55,7 +55,7 @@
 
 ### Model-and-Result
 
-  We released our ResNet-27 model, you can download it by the link below. The model was trained in caffe, please refer to our paper for the detailed training process.
+  We released our ResNet-27 model, which can be download by the link below. The model was trained in caffe, please refer to our paper for the detailed training process.
 
   **`Caffe: ResNet-27`** [@BaiduDrive](https://pan.baidu.com/s/1B5HCTfcYs7s-QeVeAzbNVw), [@GoogleDrive](https://drive.google.com/file/d/1Iqhn_SLpo_2QbIPxw8ht3tGo-2K5dExC/view)
 
