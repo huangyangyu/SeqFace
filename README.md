@@ -11,17 +11,17 @@
 
   **`2018.03.20`**: 1.Publish our paper; 2.Release test dataset and test code.
 
-  **`2018.03.15`**: 1.Create the repository; 2.Release our model. 
+  **`2018.03.15`**: 1.Create the repository; 2.Release our model. 
 
 
 ### Contents
-0. [Requirements](#requirements)
-0. [Dataset](#dataset)
-0. [Model-and-Result](#model-and-result)
-0. [Demo](#demo)
-0. [Contact](#contact)
-0. [Citation](#citation)
-0. [License](#license)
+1. [Requirements](#requirements)
+1. [Dataset](#dataset)
+1. [Model-and-Result](#model-and-result)
+1. [Demo](#demo)
+1. [Contact](#contact)
+1. [Citation](#citation)
+1. [License](#license)
 
 
 ### Requirements
@@ -79,5 +79,5 @@
 
 ### License
 
-  SeqFace is released under the MIT License
+    SeqFace is released under the MIT License
 
