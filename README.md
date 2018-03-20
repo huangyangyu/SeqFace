@@ -32,7 +32,7 @@
 
 ### Dataset
 
-  All faces in our dataset are detected by MTCNN and aligned by align.py. The structure of trainning dataset and testing dataset is shown below. Please note that the testing dataset have already be processed by detection and alignment, So you can reproduce our result directly by running our evaluating script.
+  All faces in our dataset are detected by MTCNN and aligned by util.py. The structure of trainning dataset and testing dataset is shown below. Please note that the testing dataset have already be processed by detection and alignment, So you can reproduce our result directly by running our evaluating script.
 
   Training Dataset
 
@@ -69,15 +69,15 @@
 
 ### How-to-test
 
+  Refer to run.sh
+
     step 1: git clone https://github.com/ydwen/caffe-face.git
 
     step 2: compile caffe
 
     step 3: download model and testing dataset, then unzip them
 
-    step 4: configure caffe_dir and root_dir in feature.py and evaluate.py respectively
-
-    step 5: run evaluate.py in LFW or YTF directory
+    step 4: run evaluate.py in LFW or YTF directory
 
 
 ### Demo
