@@ -98,13 +98,9 @@ def test():
         item[0] = image_dir + "images/" + item[0] + "/"
         item[1] = image_dir + "images/" + item[1] + "/"
         assert len(item) == 3
-        if os.path.exists(item[0]) and os.path.exists(item[1]):
-            pairs.append(tuple(item))
-            image_dirs.add(item[0])
-            image_dirs.add(item[1])
-        #else:
-        #    print item[0]
-        #    print item[1]
+        pairs.append(tuple(item))
+        image_dirs.add(item[0])
+        image_dirs.add(item[1])
 
     feature_file = image_dir + "feature_%d.pkl" % layer_num
     if not os.path.exists(feature_file):
@@ -128,11 +124,10 @@ def test():
         features = dict()
         for k, image_dir in enumerate(image_dirs):
             if not features.has_key(image_dir):
-                features[image_dir] = get_feature(featurer, image_dir)
+                features[image_dir.replace(root_dir, "")] = get_feature(featurer, image_dir)
             print "processed:", k
             sys.stdout.flush()
         cPickle.dump(features, open(feature_file, "wb"))
-        ##??for k, line in enumerate(open(data_dir + "data.txt")):
     else:
         features = cPickle.load(open(feature_file, "rb"))
 
@@ -141,9 +136,9 @@ def test():
     for k, pair in enumerate(pairs):
         image_dir1, image_dir2, tag = pair[:3]
         # person1
-        feature1 = features[image_dir1]
+        feature1 = features[image_dir1.replace(root_dir, "")]
         # person2
-        feature2 = features[image_dir2]
+        feature2 = features[image_dir2.replace(root_dir, "")]
         # sim
         #sim = cos_sim(feature1, feature2)
         sim = norml2_sim(feature1, feature2)
@@ -186,4 +181,3 @@ def test():
 
 if __name__ == "__main__":
     test()
-
