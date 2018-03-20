@@ -7,8 +7,6 @@
 
 ### Recent Update
 
-  **`next time`**: Coming soon.
-
   **`2018.03.20`**: 1.Publish our paper; 2.Release test dataset and test code.
 
   **`2018.03.15`**: 1.Create the repository; 2.Release our model. 
@@ -18,6 +16,7 @@
 1. [Requirements](#requirements)
 1. [Dataset](#dataset)
 1. [Model-and-Result](#model-and-result)
+1. [How-to-test](#how-to-test)
 1. [Demo](#demo)
 1. [Contact](#contact)
 1. [Citation](#citation)
@@ -45,6 +44,14 @@
 
   **`YTF`** [@BaiduDrive](https://pan.baidu.com/s/1dBf0_e-pGLxYFN8tNf7qEA), [@GoogleDrive](https://drive.google.com/file/d/19BgCxFqMgNpczFmwnDD1eFH8hHHslmJ7/view)
 
+  Testing Feature
+
+  You can also use the computed testing feature instead of the testing dataset to evaluate result.
+
+  **`LFW`**: [@BaiduDrive](https://pan.baidu.com/s/1Lwgd4mu2tvYljA8uTwGjjQ), [@GoogleDrive](https://drive.google.com/file/d/10WtXWrg72McupG0HUts9bF91hSj4mzz8/view)
+
+  **`YTF`**: [@BaiduDrive](https://pan.baidu.com/s/13soNX97jOPAvhoBoUZuMTA), [@GoogleDrive](https://drive.google.com/file/d/1ZcvaoAamBvJz89U2VOmOP_SbJug_6XMm/view)
+
 
 ### Model-and-Result
 
@@ -58,6 +65,19 @@
   | -------- | ------------ | ------------------------ | ------ | ------ |
   | SeqFace  | 1 ResNet-27  | MS-Celeb-1M + Celeb-Seq  | 99.80  | 98.00  |
   | SeqFace  | 1 ResNet-64  | MS-Celeb-1M + Celeb-Seq  | 99.83  | 98.12  |
+
+
+### How-to-test
+
+    step 1: git clone https://github.com/ydwen/caffe-face.git
+
+    step 2: compile caffe
+
+    step 3: download model and testing dataset, then unzip them
+
+    step 4: configure caffe_dir and root_dir in feature.py and evaluate.py respectively
+
+    step 5: run evaluate.py in LFW or YTF directory
 
 
 ### Demo
