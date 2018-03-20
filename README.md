@@ -48,9 +48,9 @@
 
   You can also use the precomputed feature instead of the testing dataset to evaluate our method.
 
-  **`LFW`**: [@BaiduDrive](https://pan.baidu.com/s/1Lwgd4mu2tvYljA8uTwGjjQ), [@GoogleDrive](https://drive.google.com/file/d/10WtXWrg72McupG0HUts9bF91hSj4mzz8/view)
+  **`LFW`**: [@BaiduDrive](https://pan.baidu.com/s/1IMNqie0KRdfFF4InOF2qVw), [@GoogleDrive](https://drive.google.com/file/d/1ChQN4sPI7eqSvdaztLn_Px4i656IPwtz/view)
 
-  **`YTF`**: [@BaiduDrive](https://pan.baidu.com/s/13soNX97jOPAvhoBoUZuMTA), [@GoogleDrive](https://drive.google.com/file/d/1ZcvaoAamBvJz89U2VOmOP_SbJug_6XMm/view)
+  **`YTF`**: [@BaiduDrive](https://pan.baidu.com/s/1JSoNKbgPzEh984aRlcLpmQ), [@GoogleDrive](https://drive.google.com/file/d/1CI10KoHm2Te62678kFvnV1vRVboQVqjf/view)
 
 
 ### Model-and-Result
