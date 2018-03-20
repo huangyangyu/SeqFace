@@ -2,16 +2,17 @@
 #coding: utf-8
 #author: huangyangyu
 
-root_dir = "/data/image_server/user/huangyangyu/seqface/SeqFace/"
 layer_num = 27
 #layer_num = 64
 
 import os
 import sys
-sys.path.append(root_dir + "code/")
 import gflags
 import cPickle
 import numpy as np
+
+root_dir = os.path.dirname(os.path.abspath("__file__")) + "/../../"
+sys.path.append(root_dir + "code/")
 
 if not gflags.FLAGS.has_key("model_dir"):
     gflags.DEFINE_string("model_dir", root_dir + "model/ResNet-%d/" % layer_num, "set model dir")
