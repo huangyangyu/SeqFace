@@ -7,7 +7,7 @@
 
 ### Recent Update
 
-  **`2018.03.21`**: 1.Release the code of DSALoss layer; 2.add description and example of the dsaloss layer.
+  **`2018.03.21`**: 1.Release the code of LSRLoss and DSALoss layer; 2.Add example of Seqface.
 
   **`2018.03.20`**: 1.Publish our paper; 2.Release test dataset and test code.
 
