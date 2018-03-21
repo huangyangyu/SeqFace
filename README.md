@@ -7,6 +7,8 @@
 
 ### Recent Update
 
+  **`2018.03.21`**: 1.Release the code of DSALoss layer; 2.add description and example of the dsaloss layer.
+
   **`2018.03.20`**: 1.Publish our paper; 2.Release test dataset and test code.
 
   **`2018.03.15`**: 1.Create the repository; 2.Release our model. 
@@ -17,6 +19,7 @@
 1. [Dataset](#dataset)
 1. [Model-and-Result](#model-and-result)
 1. [How-to-test](#how-to-test)
+1. [Example](#example)
 1. [Demo](#demo)
 1. [Contact](#contact)
 1. [Citation](#citation)
@@ -69,7 +72,7 @@
 
 ### How-to-test
 
-  Refer to run.sh
+  Refer to run.sh, which contains two parameters, the first one("mode") means which running mode you use("feature" or "model"), the second one("dataset") means which dataset you choose("LFW" or "YTF").
 
     step 1: git clone https://github.com/ydwen/caffe-face.git
 
@@ -78,6 +81,51 @@
     step 3: download model and testing dataset, then unzip them
 
     step 4: run evaluate.py in LFW or YTF directory
+
+  You can try the command below to verify seqface of LFW dataset in feature mode.
+
+    ./run.sh feature LFW
+
+
+### Example
+
+  The usage of LSR loss layer and DSA loss layer in train_val.prototxt:
+
+    layer {
+        name: "lsro_loss"
+        type: "LSROLoss"
+        bottom: "fc6"
+        bottom: "label000"
+        top: "lsro_loss"
+        loss_weight: @loss_weight
+    }
+
+    layer {
+        name: "dsa_loss"
+        type: "DSALoss"
+        bottom: "fc5"
+        bottom: "label000"
+        top: "dsa_loss"
+        param {
+            lr_mult: 1
+            decay_mult: 0
+        }
+        dsa_loss_param {
+            faceid_num: @faceid_num
+            seqid_num: @seqid_num
+            center_filler {
+                type: "xavier"
+            }
+            lambda: @lambda
+            dropout_ratio: @dropout_ratio
+            gamma: @gamma
+            alpha: @alpha
+            beta: @beta
+            use_normalize: @use_normalize
+            scale: @scale
+        }
+        loss_weight: @loss_weight
+    }
 
 
 ### Demo
