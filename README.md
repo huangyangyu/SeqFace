@@ -89,6 +89,8 @@
 
 ### Example
 
+  ![image](https://github.com/huangyangyu/SeqFace/blob/master/example/framwork.png)
+
   The usage of LSR loss layer and DSA loss layer in train_val.prototxt:
 
     layer {
