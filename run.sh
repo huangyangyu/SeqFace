@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 #author: huangyangyu
 
-mode=1
-#mode=2
+mode=feature
+#mode=model
 
 dataset=LFW
 #dataset=YTF
@@ -29,7 +29,7 @@ if [ ! -d caffe/build/ ]; then
 fi
 
 #step 3: download model and testing dataset, then unzip them
-if [ $mode -eq 1 ]; then
+if [ "$mode" = "feature" ]; then
     # feature
     cd data/${dataset}
     feature_file=feature_${dataset}.tar.gz
