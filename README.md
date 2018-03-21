@@ -47,7 +47,7 @@
 
   **`YTF`** [@BaiduDrive](https://pan.baidu.com/s/1dBf0_e-pGLxYFN8tNf7qEA), [@GoogleDrive](https://drive.google.com/file/d/19BgCxFqMgNpczFmwnDD1eFH8hHHslmJ7/view)
 
-  Testing Feature
+  Testing Features
 
   You can also use the precomputed feature instead of the testing dataset to evaluate our method.
 
@@ -58,9 +58,9 @@
 
 ### Model-and-Result
 
-  We released our ResNet-27 model, which can be download by the link below. The model was trained in caffe, please refer to our paper for the detailed training process.
+  We released our ResNet-27 model, which can be downloaded by the link below. The model was trained in caffe, please refer to our paper for the detailed training process.
 
-  **`Caffe: ResNet-27`** [@BaiduDrive](https://pan.baidu.com/s/1B5HCTfcYs7s-QeVeAzbNVw), [@GoogleDrive](https://drive.google.com/file/d/1Iqhn_SLpo_2QbIPxw8ht3tGo-2K5dExC/view)
+  **`Caffe: ResNet-27`** [@BaiduDrive](https://pan.baidu.com/s/1B5HCTfcYs7s-QeVeAzbNVw), [@GoogleDrive](https://drive.google.com/file/d/1Iqhn_SLpo_2QbIPxw8ht3tGo-2K5dExC/view)
 
   Performance:
 
@@ -72,7 +72,7 @@
 
 ### How-to-test
 
-  Refer to run.sh, which contains two parameters, the first one("mode") means which running mode you use("feature" or "model"), the second one("dataset") means which dataset you choose("LFW" or "YTF").
+  Refer to run.sh, which contains two parameters, the first one("mode") means the running mode you use("feature" or "model"), the other one("dataset") means the dataset you choose("LFW" or "YTF").
 
     step 1: git clone https://github.com/ydwen/caffe-face.git
 
