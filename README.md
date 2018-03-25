@@ -60,7 +60,7 @@
 
   We released our ResNet-27 model, which can be downloaded by the link below. The model was trained in caffe, please refer to our paper for the detailed training process.
 
-  **`Caffe: ResNet-27`** [@BaiduDrive](https://pan.baidu.com/s/1B5HCTfcYs7s-QeVeAzbNVw), [@GoogleDrive](https://drive.google.com/file/d/1Iqhn_SLpo_2QbIPxw8ht3tGo-2K5dExC/view)
+  **`Caffe: ResNet-27`** [@BaiduDrive](https://pan.baidu.com/s/1B5HCTfcYs7s-QeVeAzbNVw), [@GoogleDrive](https://drive.google.com/file/d/1Iqhn_SLpo_2QbIPxw8ht3tGo-2K5dExC/view) (non-commercial use only)
 
   Performance:
 
@@ -149,5 +149,5 @@
 
 ### License
 
-    SeqFace is released under the MIT License
+    SeqFace(not including the model) is released under the MIT License
 
