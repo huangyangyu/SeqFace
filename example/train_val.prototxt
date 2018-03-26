@@ -10,7 +10,10 @@ layer {
     crop_size: 128
     scale: 0.0078125
     mirror: true
-    mean_file: "@model_dir/mean.binaryproto"
+    mean_value:127.5
+    mean_value:127.5
+    mean_value:127.5
+    #mean_file: "@model_dir/mean.binaryproto"
   }
   image_data_param {
     source: "@data_dir/image_train_part1.txt"
@@ -29,7 +32,10 @@ layer {
     crop_size: 128
     scale: 0.0078125
     mirror: true
-    mean_file: "@model_dir/mean.binaryproto"
+    mean_value:127.5
+    mean_value:127.5
+    mean_value:127.5
+    #mean_file: "@model_dir/mean.binaryproto"
   }
   image_data_param {
     source: "@data_dir/image_train_part2_seq.txt"
