@@ -7,6 +7,8 @@
 
 ### Recent Update
 
+  **`2018.05.04`**: 1.Our new ResNet-64 model acquired 99.85% accuracy in LFW without 6 pairs correction.
+
   **`2018.03.21`**: 1.Release the code of LSRLoss and DSALoss layer; 2.Add example of Seqface.
 
   **`2018.03.20`**: 1.Publish our paper; 2.Release test dataset and test code.
