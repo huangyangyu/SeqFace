@@ -2,14 +2,14 @@
 
   Paper link: https://arxiv.org/abs/1803.06524
 
-    Paper by Wei Hu, Yangyu Huang, Fan Zhang, Ruirui Li, Wei Li, Guodong Yuan
+    by Wei Hu, Yangyu Huang, Fan Zhang, Ruirui Li, Wei Li, Guodong Yuan
 
 
 ### Recent Update
 
-  **`2018.06.09`**: 1.Our new ResNet-64 model acquired 99.87% accuracy in LFW, 98.16%(clean) and 83.58%(not clean) accuracy in Megaface challenge 1.
+  **`2018.06.09`**: 1.Our new ResNet-64 model achieved 99.87% accuracy on LFW, 98.16%(clean) and 83.58%(not clean) accuracy on Megaface challenge 1.
 
-  **`2018.05.04`**: 1.Our new ResNet-64 model acquired 99.85% accuracy in LFW without 6 pairs correction.
+  **`2018.05.04`**: 1.Our new ResNet-64 model achieved 99.85% accuracy on LFW without 6 pairs correction.
 
   **`2018.03.21`**: 1.Release the code of LSRLoss and DSALoss layer; 2.Add example of Seqface.
 
