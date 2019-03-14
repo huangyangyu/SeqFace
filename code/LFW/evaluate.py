@@ -41,45 +41,15 @@ from featurer import Featurer
 
 
 def cos_sim(v1, v2):
-    dot_product = 0.0
-    normA = 0.0
-    normB = 0.0
-    for a, b in zip(v1, v2):
-        dot_product += a * b
-        normA += a**2
-        normB += b**2
-    if normA != 0.0 and normB != 0.0:
-        cos = dot_product / ((normA*normB)**0.5)
-    else:
-        cos = 1.0
-    sim = 0.5 + 0.5 * cos
-    return sim
-
-
-def norml2_sim(v1, v2):
-    normA = 0.0
-    normB = 0.0
-    for a, b in zip(v1, v2):
-        normA += a ** 2
-        normB += b ** 2
-    normA **= 0.5
-    normB **= 0.5
-    diff = 0.0
-    for a, b in zip(v1, v2):
-        a /= normA
-        b /= normB
-        diff += (a - b) ** 2
-    if normA != 0.0 and normB != 0.0:
-        diff **= 0.5
-    else:
-        diff = 1.0
-    sim = 1.0 - 0.5 * diff
-    return sim
+    dist = np.linalg.norm(np.array(v1)-np.array(v2))
+    cos = 1 - dist * dist / 2
+    return cos
 
 
 def test():
     image_dir = root_dir + "data/LFW/"
 
+    # pairs
     image_files = set()
     pairs = list()
     for k, line in enumerate(open(image_dir + "pairs.txt")):
@@ -91,6 +61,7 @@ def test():
         image_files.add(item[0])
         image_files.add(item[1])
 
+    # features
     feature_file = image_dir + "feature_%d.pkl" % layer_num
     if not os.path.exists(feature_file):
         gflags.FLAGS(sys.argv)
@@ -120,8 +91,8 @@ def test():
     else:
         features = cPickle.load(open(feature_file, "rb"))
 
+    # sims
     sims = list()
-    threds = list()
     for pair in pairs:
         image_file1, image_file2, tag = pair[:3]
         # person1
@@ -129,32 +100,26 @@ def test():
         # person2
         feature2 = features[image_file2.replace(root_dir, "")]
         # sim
-        #sim = cos_sim(feature1, feature2)
-        sim = norml2_sim(feature1, feature2)
+        sim = cos_sim(feature1, feature2)
         sims.append((sim, int(tag), image_file1, image_file2))
-        threds.append(sim)
+    sims = sorted(sims, key=lambda item: item[0])
 
+    # roc
+    tn = 0
+    fn = 0
+    tp = len(filter(lambda item: item[1]==1, sims))
+    fp = len(filter(lambda item: item[1]==0, sims))
     best_accuracy = 0.0
     best_thred = 0.0
     with open(image_dir + "roc_%d.txt" % layer_num, "wb") as f:
-        for thred in sorted(threds):
-            tp = 0
-            fn = 0
-            tn = 0
-            fp = 0
-            for sim, tag, image_file1, image_file2 in sims:
-                if tag == 1:
-                    if sim >= thred:
-                        tp += 1
-                    else:
-                        fn += 1
-                        #print "fp", image_file1, image_file2
-                if tag == 0:
-                    if sim < thred:
-                        tn += 1
-                    else:
-                        fp += 1
-                        #print "fn", image_file1, image_file2
+        for k, sim in enumerate(sims):
+            thred, tag, image_file1, image_file2 = sim
+            if tag == 0:
+                tn += 1
+                fp -= 1
+            else:
+                fn += 1
+                tp -= 1
             tpr = 1.0 * tp / max(tp + fn, 1)
             fnr = 1.0 * fn / max(tp + fn, 1)
             tnr = 1.0 * tn / max(tn + fp, 1)
@@ -164,8 +129,7 @@ def test():
                 best_accuracy = accuracy
                 best_thred = thred
             f.write("%.6f %.6f\n" % (tpr, fpr))
-            #print thred, (tp + fp + tn + fn), tpr, tnr, accuracy
-        print "best:", len(pairs), best_thred, best_accuracy
+    print "best:", len(pairs), best_thred, best_accuracy
 
 
 if __name__ == "__main__":
