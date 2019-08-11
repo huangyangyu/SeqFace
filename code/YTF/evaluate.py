@@ -41,6 +41,8 @@ from featurer import Featurer
 
 
 def cos_sim(v1, v2):
+    v1 /= np.linalg.norm(v1)
+    v2 /= np.linalg.norm(v2)
     dist = np.linalg.norm(np.array(v1)-np.array(v2))
     cos = 1 - dist * dist / 2
     return cos
